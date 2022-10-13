@@ -24,7 +24,7 @@ const ParticlesEffect = () => {
         particles: {
           number: {
             //눈 개수
-            value: 50,
+            value: 20,
             density: {
               enable: true,
               value_area: 800,
@@ -47,7 +47,7 @@ const ParticlesEffect = () => {
             },
           },
           size: {
-            value: 10,
+            value: 5,
             random: true,
             anim: {
               enable: false,
@@ -116,8 +116,8 @@ const ParticlesEffect = () => {
         },
         retina_detect: true,
         background: {
-          color: "#0d47a1",
-          opacity: 0.4,
+          color: "#dedede",
+          opacity: 0.1,
           image: "",
           position: "50% 50%",
           repeat: "no-repeat",
