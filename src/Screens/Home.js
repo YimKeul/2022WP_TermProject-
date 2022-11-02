@@ -37,7 +37,7 @@ const S = {
     background-position: center;
     background-repeat: no-repeat;
     text-align: center;
-    @media screen and (max-width: 400px) {
+    @media screen and (max-width: 480px) {
       background-size: cover;
     }
   `,
@@ -56,7 +56,7 @@ const S = {
     margin: 0;
     font-size: 70px;
     color: white;
-    @media screen and (max-width: 400px) {
+    @media screen and (max-width: 480px) {
       font-size: 50px;
     }
   `,
@@ -65,7 +65,7 @@ const S = {
     font-size: 20px;
     letter-spacing: 2px;
 
-    @media screen and (max-width: 400px) {
+    @media screen and (max-width: 480px) {
       font-size: 15px;
     }
   `,

@@ -16,5 +16,11 @@ const images = {
 
   mg_40_before: require("./img2/40_before.png"),
   mg_40_after: require("./img2/40_after.png"),
+
+  upload: require("./img2/upload.png"),
+  check: require("./img2/check.png"),
+  save: require("./img2/save.png"),
+  kakao: require("./img2/kakao.png"),
+  reset: require("./img2/reset.png"),
 };
 export default images;

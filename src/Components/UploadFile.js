@@ -1,16 +1,34 @@
 import React, { useState, useEffect, useRef } from "react";
-// import { Link } from "react-router-dom";
+import * as tmImage from "@teachablemachine/image";
 import styled from "styled-components";
 import images from "../assets/images";
 
+let model;
+
 const UploadFile = () => {
-  const [selectedImage, setSelectedImage] = useState();
+  const [selectedImage, setSelectedImage] = useState(null);
+  const [imgBase64, setImgBase64] = useState(""); // 파일 base64
+  const [result, isResult] = useState(null);
 
   const inputREF = useRef();
 
   const imageChange = (e) => {
-    const files = e.target.files[0];
-    setSelectedImage(files);
+    // const files = e.target.files[0];
+    let reader = new FileReader();
+    reader.onloadend = () => {
+      // 2. 읽기가 완료되면 아래코드가 실행됩니다.
+      const base64 = reader.result;
+      if (base64) {
+        setImgBase64(base64.toString()); // 파일 base64 상태 업데이트
+      }
+    };
+
+    // setSelectedImage(files);
+    if (e.target.files[0]) {
+      reader.readAsDataURL(e.target.files[0]); // 1. 파일을 읽어 버퍼에 저장합니다.
+      setSelectedImage(e.target.files[0]); // 파일 상태 업데이트
+      init().then(console.log("init 모델"), predict());
+    }
   };
 
   const removeSelectedImage = () => {
@@ -18,6 +36,43 @@ const UploadFile = () => {
     // setSelectedImage(null);
   };
 
+  const URL = "https://teachablemachine.withgoogle.com/models/eTFfdq4Mn/";
+  const modelURL = URL + "model.json";
+  const metadataURL = URL + "metadata.json";
+
+  async function init() {
+    model = await tmImage.load(modelURL, metadataURL);
+    // model = await tmImage.load(models, metas);
+    //총 클래스 수
+    let maxPredictions;
+    maxPredictions = model.getTotalClasses();
+  }
+  async function predict() {
+    model = await tmImage.load(modelURL, metadataURL);
+    // model = await tmImage.load(models, metas);
+    const tempImage = document.getElementById("srcImg");
+    const prediction = await model.predict(tempImage, false);
+    prediction.sort(
+      (a, b) => parseFloat(b.probability) - parseFloat(a.probability)
+    );
+    var resultMessage;
+
+    switch (prediction[0].className) {
+      case "dandy":
+        resultMessage = "댄디";
+        break;
+      case "street":
+        resultMessage = "스트릿";
+        break;
+      case "formal":
+        resultMessage = "포멀";
+        break;
+      case "casual":
+        resultMessage = "캐주얼";
+        break;
+    }
+    isResult(resultMessage);
+  }
   return (
     <S.container>
       <S.inputContainer
@@ -33,8 +88,12 @@ const UploadFile = () => {
         />
         {selectedImage ? (
           <>
-            <S.image src={URL.createObjectURL(selectedImage)} alt="Thumb" />
-            {console.log(selectedImage)}
+            <S.image
+              id="srcImg"
+              // src={URL.createObjectURL(selectedImage)}
+              src={imgBase64}
+              alt="Thumb"
+            />
             <S.delete onClick={removeSelectedImage}>Remove This Image</S.delete>
           </>
         ) : // <button>click</button>
