@@ -43,7 +43,11 @@ const Result = () => {
         <S.ResultTextBox>
           <S.ResultTitle>{ShowData.title}</S.ResultTitle>
           <S.ResultContext>{ShowData.explain}</S.ResultContext>
-          <S.ResultLink>바로가기버튼</S.ResultLink>
+          <S.ResultLink
+            onClick={() => window.open(`${ShowData.link}`, "_blank")}
+          >
+            바로가기버튼
+          </S.ResultLink>
         </S.ResultTextBox>
       </S.ResultBox>
 
