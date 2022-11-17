@@ -4,8 +4,10 @@ import { Link } from "react-router-dom";
 import images from "../assets/images";
 import { useLocation } from "react-router-dom"; // 이전화면에서 전달한 데이터 받아오기
 import { useScreenshot, createFileName } from "use-react-screenshot";
-// import DB from "../DB.js";
 import { perfume } from "../DB"; // 직접 작성한 jsos 파일 가져오기
+
+// const { Kakao } = window;
+
 const Result = () => {
   const location = useLocation(); // 이전화면에서 전달한 데이터 받아오기
   const D_age = location.state.Age; // 나이 전달
@@ -42,19 +44,45 @@ const Result = () => {
   const randomindex = Math.floor(Math.random() * (newDB.length - 0));
   var ShowData = newDB[randomindex];
 
-  //에러 방지용 데이터 셋
-  // if (ShowData == null) {
-  //   ShowData = {
-  //     idx: 0,
-  //     title: "딥티크 플레르 드 뽀 EDP (75ml)",
-  //     explain: "#오드퍼퓸 #머스크계열",
-  //     sex: "man",
-  //     age: 10,
-  //     style: "댄디",
-  //     img_link: images.딥티크,
-  //     link: "http://prod.danawa.com/info/?pcode=5921646&cate=18222429",
-  //   };
-  // }
+  //배포후
+  const url = "https://wearscent.netlify.app/";
+  //배포전
+  // const url = "http://localhost:3000";
+  const resultUrl = window.location.href;
+
+  useEffect(() => {
+    if (window.Kakao) {
+      const kakao = window.Kakao;
+      if (!kakao.isInitialized()) {
+        kakao.init("1bb3f384d3095bbb06e000935b2ca45f");
+      }
+    }
+    // Kakao.init("1bb3f384d3095bbb06e000935b2ca45f");
+  }, []);
+  const shareKakao = () => {
+    window.Kakao.Share.sendDefault({
+      objectType: "feed",
+      content: {
+        title: "🎁 향수 추천 결과",
+        description: `당신에게 ${ShowData.title}을(를) 추천합니다.`,
+        imageUrl: url + ShowData.img_link,
+        link: {
+          mobileWebUrl: resultUrl,
+          webUrl: resultUrl,
+        },
+      },
+      buttons: [
+        {
+          title: "나도 테스트하러가기",
+          link: {
+            mobileWebUrl: url,
+            webUrl: url,
+          },
+        },
+      ],
+    });
+  };
+
   //로그 확인용
   console.log(ShowData);
 
@@ -82,7 +110,10 @@ const Result = () => {
       <S.ButtonBox>
         <S.ButtonBoxGrid>
           {/* 카카오톡 공유하기는 배포가 된 이후에 적용 가능하므로 버튼만 구성 */}
-          <S.BtnBox style={{ ...{ background: " #fef01b" } }}>
+          <S.BtnBox
+            onClick={shareKakao}
+            style={{ ...{ background: " #fef01b" } }}
+          >
             <S.BtnImg src={images.kakao} />
             <S.BtnText>공유하기</S.BtnText>
           </S.BtnBox>
