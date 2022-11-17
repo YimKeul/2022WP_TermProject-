@@ -1,44 +1,72 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, createRef, useRef } from "react";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 import images from "../assets/images";
-import { useLocation } from "react-router-dom";
-import DB from "../DB.json";
-
+import { useLocation } from "react-router-dom"; // 이전화면에서 전달한 데이터 받아오기
+import { useScreenshot, createFileName } from "use-react-screenshot";
+// import DB from "../DB.js";
+import { perfume } from "../DB"; // 직접 작성한 jsos 파일 가져오기
 const Result = () => {
-  const location = useLocation();
+  const location = useLocation(); // 이전화면에서 전달한 데이터 받아오기
   const D_age = location.state.Age; // 나이 전달
   const D_gender = location.state.Gender; //성별 전달
   const D_fashion = location.state.Fashion; //성별 전달
-  const Database = DB.perfume;
+  const Database = perfume; // 직접 작성한 jsos 파일 가져오기
 
+  // https://stackoverflow.com/questions/71190946/created-image-with-use-react-screenshot-is-incorrectly-rendered
+  // 결과 화면 스크린샷 ~30라인
+  const ref = createRef(null);
+  const [image, takeScreenShot] = useScreenshot({
+    type: "image/jpeg",
+    quality: 1.0,
+  });
+  //image를 파일 이름과 형식을 저장
+  const download = (image, { name = "img", extension = "jpg" } = {}) => {
+    const a = document.createElement("a");
+    a.href = image;
+    a.download = createFileName(extension, name);
+    a.click();
+  };
+  //최근 선택한 요소 다운
+  const downloadScreenshot = () => takeScreenShot(ref.current).then(download);
+  ///
+
+  //데이터 필터링 나이,연령대,스타일이 맞는 경우에 newDB에 저장
   const newDB = Database.filter((data) => {
     if (data.age == D_age && data.sex == D_gender && data.style == D_fashion) {
       return data;
     }
   });
+
+  // 이전 화면에서 조건에 맞는 데이터들 중 랜덤하게 하나 뽑기 위한 로직
   const randomindex = Math.floor(Math.random() * (newDB.length - 0));
   var ShowData = newDB[randomindex];
-  if (ShowData == null) {
-    ShowData = {
-      idx: 0,
-      title: "딥티크 플레르 드 뽀 EDP (75ml)",
-      explain: "#오드퍼퓸 #머스크계열",
-      sex: "man",
-      age: 10,
-      style: "댄디",
-      img_link:
-        "http://img.danawa.com/prod_img/500000/646/921/img/5921646_1.jpg?shrink=330:330&_v=20200720093952",
-      link: "http://prod.danawa.com/info/?pcode=5921646&cate=18222429",
-    };
-  }
+
+  //에러 방지용 데이터 셋
+  // if (ShowData == null) {
+  //   ShowData = {
+  //     idx: 0,
+  //     title: "딥티크 플레르 드 뽀 EDP (75ml)",
+  //     explain: "#오드퍼퓸 #머스크계열",
+  //     sex: "man",
+  //     age: 10,
+  //     style: "댄디",
+  //     img_link: images.딥티크,
+  //     link: "http://prod.danawa.com/info/?pcode=5921646&cate=18222429",
+  //   };
+  // }
+  //로그 확인용
   console.log(ShowData);
 
   return (
     <S.Container>
-      <S.ResultBox>
+      <S.ResultBox ref={ref}>
+        {/* 스크린샷 범위 지정 ref */}
         <S.InTitle>당신에게 어울리는 향수는...</S.InTitle>
         <S.ResultImgbox>
-          <S.ResultImg src={ShowData.img_link} />
+          <S.ResultImg src={ShowData.img_link} alt="" />
+          {/* 결과 이미지 화면*/}
+          {/* <S.ResultImg src={images.man_after} alt="" /> */}
         </S.ResultImgbox>
         <S.ResultTextBox>
           <S.ResultTitle>{ShowData.title}</S.ResultTitle>
@@ -46,27 +74,34 @@ const Result = () => {
           <S.ResultLink
             onClick={() => window.open(`${ShowData.link}`, "_blank")}
           >
-            바로가기버튼
+            상품 보기
           </S.ResultLink>
         </S.ResultTextBox>
       </S.ResultBox>
 
       <S.ButtonBox>
         <S.ButtonBoxGrid>
+          {/* 카카오톡 공유하기는 배포가 된 이후에 적용 가능하므로 버튼만 구성 */}
           <S.BtnBox style={{ ...{ background: " #fef01b" } }}>
             <S.BtnImg src={images.kakao} />
             <S.BtnText>공유하기</S.BtnText>
           </S.BtnBox>
 
-          <S.BtnBox style={{ ...{ background: " #01ADFF" } }}>
+          {/* 스크린샷 저장버튼 */}
+          <S.BtnBox
+            style={{ ...{ background: " #01ADFF" } }}
+            onClick={downloadScreenshot}
+          >
             <S.BtnImg src={images.save} />
             <S.BtnText style={{ ...{ color: "white" } }}>저장하기</S.BtnText>
           </S.BtnBox>
-
-          <S.BtnBox style={{ ...{ background: "smokewhite" } }}>
-            <S.BtnImg src={images.reset} />
-            <S.BtnText style={{ ...{ color: "white" } }}>초기화</S.BtnText>
-          </S.BtnBox>
+          {/* 초기화 버튼 : 홈화면으로 이동함 */}
+          <Link to="/" style={{ textDecoration: "none" }}>
+            <S.BtnBox style={{ ...{ background: "smokewhite" } }}>
+              <S.BtnImg src={images.reset} />
+              <S.BtnText style={{ ...{ color: "white" } }}>초기화</S.BtnText>
+            </S.BtnBox>
+          </Link>
         </S.ButtonBoxGrid>
       </S.ButtonBox>
     </S.Container>
@@ -85,7 +120,6 @@ const S = {
     flex-direction: column;
     width: 80vw;
     align-items: center;
-    margin-block: 30px;
     box-shadow: 10px 10px 10px #bebfbe;
     padding-bottom: 20px;
     background-color: white;
@@ -96,68 +130,72 @@ const S = {
   `,
   InTitle: styled.p`
     height: fit-content;
-    font-size: 20px;
+    font-size: 40px;
     font-weight: bold;
+    text-align: center;
+    @media screen and (max-width: 480px) {
+      font-size: 30px;
+    }
   `,
   ResultImgbox: styled.div`
-    width: 60vw;
-    height: 80vh;
+    width: 30vw;
+    height: 40vh;
+    padding: 20px;
     border-radius: 20px;
     border: 2px solid black;
-    background-color: skyblue;
     margin-bottom: 20px;
     box-shadow: 10px 10px 10px #bebfbe;
     @media screen and (max-width: 480px) {
-      width: 80vw;
-      height: 120vw;
+      width: 30vh;
+      height: 40vh;
     }
   `,
   ResultImg: styled.img`
     width: 100%;
     height: 100%;
     border-radius: 20px;
+    z-index: 10;
   `,
   ResultTextBox: styled.div`
     display: flex;
     flex-direction: column;
-
-    width: 60vw;
-    height: 30vh;
+    align-items: center;
+    justify-content: center;
+    width: 30vw;
+    padding: 20px;
+    /* height: 30vh; */
     border-radius: 20px;
     border: 2px solid black;
     background-color: white;
     box-shadow: 10px 10px 10px #bebfbe;
     @media screen and (max-width: 480px) {
-      width: 80vw;
+      width: 30vh;
     }
   `,
   ResultTitle: styled.p`
-    padding-inline: 20px;
-    /* height: fit-content; */
     font-size: 25px;
     font-weight: bold;
+    margin-block: 20px;
+    align-self: flex-start;
     @media screen and (max-width: 480px) {
       font-size: 20px;
-      text-align: center;
     }
   `,
   ResultContext: styled.p`
-    padding-inline: 20px;
     font-size: 20px;
     font-weight: 500;
-    height: 50%;
-
+    align-self: flex-start;
     //https://velog.io/@syoung125/CSS-text-overflow-ellipsis-%EB%91%90%EC%A4%84-%EC%9D%B4%EC%83%81-%EC%B2%98%EB%A6%AC
+    // p태그의 글자수 라인 제한하기
     text-overflow: ellipsis;
     overflow: hidden;
     word-break: break-word;
     display: -webkit-box;
-    -webkit-line-clamp: 4; // 원하는 라인수
+    -webkit-line-clamp: 10; // 원하는 라인수
     -webkit-box-orient: vertical;
 
     @media screen and (max-width: 480px) {
       font-size: 15px;
-      text-align: center;
     }
   `,
   ResultLink: styled.div`
@@ -165,7 +203,7 @@ const S = {
     display: flex;
     align-self: center;
     justify-content: center;
-    background: #bdbdbd;
+    background: white;
     border: 3px solid #000000;
     border-radius: 100px;
     color: #444;
@@ -176,7 +214,7 @@ const S = {
     width: 120px;
     padding: 12px 22px;
     text-align: center;
-    margin-bottom: 20px;
+    margin-block: 20px;
     box-shadow: 0px 8px 4px #bebfbe;
     &:hover {
       border: 3px solid #ffffff;
@@ -190,8 +228,8 @@ const S = {
     display: flex;
     flex-direction: column;
     width: 80vw;
-    margin-bottom: 30px;
-    padding-block: 10px;
+    padding-top: 10px;
+    padding-bottom: 30px;
     box-shadow: 10px 10px 10px #bebfbe;
     background-color: white;
     @media screen and (max-width: 480px) {

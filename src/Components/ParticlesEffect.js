@@ -24,7 +24,7 @@ const ParticlesEffect = () => {
         },
         particles: {
           number: {
-            //눈 개수
+            //눈 개수 (떠다니는 아이콘의 개수)
             value: 30,
             density: {
               enable: true,

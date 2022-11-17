@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import ParticlesEffect from "../Components/ParticlesEffect";
+import ParticlesEffect from "../Components/ParticlesEffect"; //화면 효과
 import images from "../assets/images";
 import styled from "styled-components";
 
@@ -13,11 +13,13 @@ const Home = () => {
             <S.Title>Scent of Dress</S.Title>
             <S.SubTitle>옷에 어울리는 향수를 찾아드립니다.</S.SubTitle>
           </S.TitleBox>
+          {/* Link : 페이지 이동 */}
           <Link to="/Main">
             <S.NextpageBtn>next</S.NextpageBtn>
           </Link>
         </S.InnerContainer>
       </S.BackgroundImg>
+      {/* 화면 효과 불러옴 */}
       <ParticlesEffect />
     </S.Container>
   );
@@ -26,7 +28,6 @@ export default Home;
 
 const S = {
   Container: styled.div`
-    /* background-color: #bebfbe; */
     background-color: #f5f5f5;
   `,
   BackgroundImg: styled.div`
@@ -37,6 +38,7 @@ const S = {
     background-position: center;
     background-repeat: no-repeat;
     text-align: center;
+    //반응형 웹페이지용 저장 :: @media screen ~480px에는 밑 스타일 적용 그 외 기존 설정한 스타일 적용
     @media screen and (max-width: 480px) {
       background-size: cover;
     }
@@ -44,7 +46,6 @@ const S = {
   InnerContainer: styled.div`
     display: flex;
     flex-direction: column;
-    /* justify-content: center; */
     align-items: center;
   `,
   TitleBox: styled.div`

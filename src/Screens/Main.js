@@ -1,24 +1,26 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import images from "../assets/images";
-import Spinner from "react-activity/dist/Spinner";
-import "react-activity/dist/Spinner.css";
-import * as tmImage from "@teachablemachine/image";
-import { FaCheck } from "react-icons/fa";
+import Spinner from "react-activity/dist/Spinner"; // spinner효과를 사용하기 위한 코드
+import "react-activity/dist/Spinner.css"; //spinner효과를 사용하기 위한 코드
+import * as tmImage from "@teachablemachine/image"; //Teachable Machine을 사용하기 위한 npm
+import { FaCheck } from "react-icons/fa"; //아이콘 사용
 
-import ParticlesEffect2 from "../Components/ParticlesEffect2";
+import ParticlesEffect2 from "../Components/ParticlesEffect2"; //화면 효과 가져오는데 좀더 많은 아이콘이 떠다니도록 저장한 파일
 
 let model;
 
 const Main = () => {
-  const [gender, isGender] = useState();
-  const [age, isAge] = useState();
-  const [selectedImage, setSelectedImage] = useState(null);
+  const [gender, isGender] = useState(); //성별 상태저장
+  const [age, isAge] = useState(); //연령대 상태저장
+  const [fashion, isFashion] = useState(null); // 옷 스타일 상태 저장
+
+  // https://github.com/leeminq1/politic_test/blob/master/src/pages/Main.js
+  // react에서 google teachable machine 사용 사례 적용 ~ 46라인
+  const [selectedImage, setSelectedImage] = useState(null); //이미지 선택 저장
   const [imgBase64, setImgBase64] = useState(""); // 파일 base64
-  const [fashion, isFashion] = useState(null);
-  const [loading, isLoading] = useState(false);
-  const inputREF = useRef();
+  const inputREF = useRef(); //요소 선택 저장
 
   const imageChange = (e) => {
     // const files = e.target.files[0];
@@ -30,18 +32,20 @@ const Main = () => {
         setImgBase64(base64.toString()); // 파일 base64 상태 업데이트
       }
     };
-
-    // setSelectedImage(files);
     if (e.target.files[0]) {
       reader.readAsDataURL(e.target.files[0]); // 1. 파일을 읽어 버퍼에 저장합니다.
       setSelectedImage(e.target.files[0]); // 파일 상태 업데이트
       init().then(console.log("init 모델"), predict());
     }
   };
+
+  //삭제 기능 (고민중)
   const removeSelectedImage = () => {
     window.location.replace("/Main");
-    // setSelectedImage(null);
   };
+
+  //구글 티처블 머신 공식 홈페이지 ~85라인
+  // https://teachablemachine.withgoogle.com/
   const URL = "https://teachablemachine.withgoogle.com/models/eTFfdq4Mn/";
   const modelURL = URL + "model.json";
   const metadataURL = URL + "metadata.json";
@@ -57,11 +61,12 @@ const Main = () => {
     // model = await tmImage.load(models, metas);
     const tempImage = document.getElementById("srcImg");
     const prediction = await model.predict(tempImage, false);
+    //데이터 출력 우선순위 (내림차순 정렬)
     prediction.sort(
       (a, b) => parseFloat(b.probability) - parseFloat(a.probability)
     );
     var resultMessage;
-
+    //데이터 분류
     switch (prediction[0].className) {
       case "dandy":
         resultMessage = "댄디";
@@ -70,13 +75,13 @@ const Main = () => {
         resultMessage = "스트릿";
         break;
       case "formal":
-        resultMessage = "포멀";
+        resultMessage = "댄디";
         break;
       case "casual":
         resultMessage = "캐주얼";
         break;
     }
-    isFashion(resultMessage);
+    isFashion(resultMessage); // 패션 분류 데이터 저장
   }
 
   return (
@@ -86,6 +91,7 @@ const Main = () => {
         <S.InTitle>당신의 성별을 선택해 주세요.</S.InTitle>
 
         <S.GenderImgBox>
+          {/* 성별 선택 시 이미지 변경 로직 */}
           {gender != null && gender == "man" ? (
             <S.GenderImg
               src={images.man_after}
@@ -122,6 +128,7 @@ const Main = () => {
 
       <S.AgeBox>
         <S.InTitle>당신의 연령대를 선택해 주세요.</S.InTitle>
+        {/* 연령대 선택 시 이미지 변경 로직 */}
         <S.AgeBoxGrid>
           <S.AgeImgBox>
             <S.AgeTitle>10대</S.AgeTitle>
@@ -202,17 +209,21 @@ const Main = () => {
       </S.AgeBox>
       <S.FashionBox>
         <S.InTitle>당신의 옷 스타일을 보여주세요.</S.InTitle>
+        {/*  https://github.com/leeminq1/politic_test/blob/master/src/pages/Main.js */}
+        {/* react에서 google teachable machine 사용 사례 적용 ~ 256라인 */}
         <S.UploadBox
           onClick={() => {
             inputREF.current.click();
           }}
         >
+          {/* 이미지 업로드  */}
           <S.InputArea
             ref={inputREF}
             accept="image/*"
             type="file"
             onChange={imageChange}
           />
+          {/* 이미지를 저장하는 변수에 값이 저장 되면 해당 이미지 렌더링 , 아닐 경우 이미지를 추가하라는 이미지 렌더링 */}
           {selectedImage ? (
             <>
               <S.UploadAfterImg id="srcImg" src={imgBase64} alt="Thumb" />
@@ -222,7 +233,9 @@ const Main = () => {
               삭제버튼 고민중
               
               */}
+
               {fashion ? (
+                // 패션 데이터 분류가 진행중일 경우에는 spinner와 함께 상황 진행중 표시 아닐경우 분석 완료 테스트 렌더링
                 <S.UploadResultBox>
                   <S.UploadResultText>
                     분석완료 <FaCheck color="green" />
@@ -240,6 +253,7 @@ const Main = () => {
           )}
         </S.UploadBox>
       </S.FashionBox>
+      {/* 다음페이지를 넘어가기 위해 모든 데이터 입력이 완료되어야 버튼 활성화 */}
       {age != null && gender != null && fashion != null ? (
         <Link
           to="/Result"
