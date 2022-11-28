@@ -39,11 +39,6 @@ const Main = () => {
     }
   };
 
-  //삭제 기능 (고민중)
-  const removeSelectedImage = () => {
-    window.location.replace("/Main");
-  };
-
   //구글 티처블 머신 공식 홈페이지 ~85라인
   // https://teachablemachine.withgoogle.com/
   const URL = "https://teachablemachine.withgoogle.com/models/eTFfdq4Mn/";
@@ -138,7 +133,6 @@ const Main = () => {
                 onClick={() => {
                   isAge();
                 }}
-                // style={{ ...{ borderColor: "black" } }}
               />
             ) : (
               <S.AgeImg
