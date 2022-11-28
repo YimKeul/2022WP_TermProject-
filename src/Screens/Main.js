@@ -6,7 +6,6 @@ import Spinner from "react-activity/dist/Spinner"; // spinner효과를 사용하
 import "react-activity/dist/Spinner.css"; //spinner효과를 사용하기 위한 코드
 import * as tmImage from "@teachablemachine/image"; //Teachable Machine을 사용하기 위한 npm
 import { FaCheck } from "react-icons/fa"; //아이콘 사용
-
 import ParticlesEffect2 from "../Components/ParticlesEffect2"; //화면 효과 가져오는데 좀더 많은 아이콘이 떠다니도록 저장한 파일
 
 let model;
