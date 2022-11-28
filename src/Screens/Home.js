@@ -86,5 +86,6 @@ const S = {
       background-color: rgb(0, 0, 0, 0.5);
       color: rgb(255, 255, 255, 100);
     }
+    -webkit-tap-highlight-color: transparent;
   `,
 };

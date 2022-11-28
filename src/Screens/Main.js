@@ -335,7 +335,7 @@ const S = {
     cursor: pointer;
     display: flex;
     flex-direction: column;
-    /* -webkit-tap-highlight-color: transparent; //모바일 하이라이트 방지 */
+    -webkit-tap-highlight-color: transparent; //모바일 하이라이트 방지
   `,
   AgeTitle: styled.p`
     text-align: center;
