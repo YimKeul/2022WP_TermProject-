@@ -24,14 +24,19 @@ const Result = () => {
   });
   //image를 파일 이름과 형식을 저장
   const download = (image, { name = "img", extension = "jpg" } = {}) => {
+    console.log("asdf");
     const a = document.createElement("a");
     a.href = image;
     a.download = createFileName(extension, name);
-    a.click();
+    // a.click();
   };
   //최근 선택한 요소 다운
   const downloadScreenshot = () => takeScreenShot(ref.current).then(download);
   ///
+  // const preventClose = (e) => {
+  //   e.preventDefault();
+  //   e.returnValue = "";
+  // };
 
   //데이터 필터링 나이,연령대,스타일이 맞는 경우에 newDB에 저장
   const newDB = Database.filter((data) => {
@@ -45,9 +50,9 @@ const Result = () => {
   var ShowData = newDB[randomindex];
 
   //배포후
-  const url = "https://wearscent.netlify.app/";
+  // const url = "https://wearscent.netlify.app/";
   //배포전
-  // const url = "http://localhost:3000";
+  const url = "http://localhost:3000";
   const resultUrl = window.location.href;
 
   useEffect(() => {
@@ -57,6 +62,10 @@ const Result = () => {
         kakao.init("1bb3f384d3095bbb06e000935b2ca45f");
       }
     }
+    // window.addEventListener("beforeunload", preventClose);
+    // return () => {
+    //   window.removeEventListener("beforeunload", preventClose);
+    // };
     // Kakao.init("1bb3f384d3095bbb06e000935b2ca45f");
   }, []);
   const shareKakao = () => {
@@ -118,13 +127,13 @@ const Result = () => {
           </S.BtnBox>
 
           {/* 스크린샷 저장버튼 */}
-          <S.BtnBox
+          {/* <S.BtnBox
             style={{ ...{ background: " #01ADFF" } }}
             onClick={downloadScreenshot}
           >
             <S.BtnImg src={images.save} />
             <S.BtnText style={{ ...{ color: "white" } }}>저장하기</S.BtnText>
-          </S.BtnBox>
+          </S.BtnBox> */}
           {/* 초기화 버튼 : 홈화면으로 이동함 */}
           <Link
             to="/"
