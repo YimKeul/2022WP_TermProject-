@@ -82,6 +82,7 @@ const ParticlesEffect = () => {
           events: {
             onhover: {
               enable: true,
+              //모양 설정
               mode: "bubble",
             },
             onclick: {
