@@ -126,7 +126,13 @@ const Result = () => {
             <S.BtnText style={{ ...{ color: "white" } }}>저장하기</S.BtnText>
           </S.BtnBox>
           {/* 초기화 버튼 : 홈화면으로 이동함 */}
-          <Link to="/" style={{ textDecoration: "none" }}>
+          <Link
+            to="/"
+            style={{
+              textDecoration: "none",
+              WebkitTapHighlightColor: "transparent",
+            }}
+          >
             <S.BtnBox style={{ ...{ background: "smokewhite" } }}>
               <S.BtnImg src={images.reset} />
               <S.BtnText style={{ ...{ color: "white" } }}>초기화</S.BtnText>
@@ -251,6 +257,7 @@ const S = {
       background-color: rgb(0, 0, 0, 0.5);
       color: rgb(255, 255, 255, 100);
     }
+    -webkit-tap-highlight-color: transparent;
   `,
   //////////
 
@@ -296,6 +303,7 @@ const S = {
   BtnImg: styled.img`
     width: 50px;
     margin-right: 10px;
+    -webkit-tap-highlight-color: transparent;
   `,
   BtnText: styled.p`
     font-weight: bold;
