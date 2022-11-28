@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 import images from "../assets/images";
 import { useLocation } from "react-router-dom"; // 이전화면에서 전달한 데이터 받아오기
-import { useScreenshot, createFileName } from "use-react-screenshot";
+// import { useScreenshot, createFileName } from "use-react-screenshot";
 import { perfume } from "../DB"; // 직접 작성한 jsos 파일 가져오기
 
 // const { Kakao } = window;
@@ -112,7 +112,6 @@ const Result = () => {
 
       <S.ButtonBox>
         <S.ButtonBoxGrid>
-          {/* 카카오톡 공유하기는 배포가 된 이후에 적용 가능하므로 버튼만 구성 */}
           <S.BtnBox
             onClick={shareKakao}
             style={{ ...{ background: " #fef01b" } }}
