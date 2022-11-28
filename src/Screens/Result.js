@@ -299,6 +299,7 @@ const S = {
       margin-inline: 0px;
       margin-block: 10px;
     }
+    -webkit-tap-highlight-color: transparent;
   `,
   BtnImg: styled.img`
     width: 50px;
