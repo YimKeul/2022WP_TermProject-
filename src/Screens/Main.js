@@ -354,8 +354,6 @@ const S = {
   FashionBox: styled.div`
     display: flex;
     flex-direction: column;
-    /* height: fit-content; */
-
     width: 80vw;
     margin-block: 30px;
     padding-bottom: 50px;
@@ -385,11 +383,6 @@ const S = {
   UploadBeforeImg: styled.img`
     display: flex;
     flex: 1;
-    /* width: 100%; */
-    /* height: 100%; */
-    /* object-fit: contain; */
-    /* resize: cover; */
-    /* align-self: center; */
   `,
   UploadAfterImg: styled.img`
     width: 100%;
@@ -402,7 +395,6 @@ const S = {
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    /* height: fit-content; */
     margin-top: 20px;
   `,
   UploadResultText: styled.p`
