@@ -3,7 +3,6 @@
 
 import images from "./assets/images";
 export const perfume = [
-  //10대 남
   {
     idx: 0,
     title: "딥티크 플레르 드 뽀 EDP (75ml)",
@@ -47,10 +46,8 @@ export const perfume = [
     link: "http://prod.danawa.com/info/?pcode=5921646&cate=18222429",
   },
 
-  //////////////////////////////////////
-  //20대 남
   {
-    idx: 3,
+    idx: 4,
     title: "키엘 오리지널 머스크 EDT (50ml)",
     explain: "#오드뜨왈렛 #머스크계열",
     sex: "man",
@@ -72,7 +69,7 @@ export const perfume = [
     link: "http://prod.danawa.com/info/?pcode=4634957&cate=18222429",
   },
   {
-    idx: 7,
+    idx: 6,
     title: "포맨트 포 맨 시그니처 퍼퓸 코튼허그 (50ml)",
     explain: "#퍼퓸 #시트러스머스크계열",
     sex: "man",
@@ -83,7 +80,7 @@ export const perfume = [
   },
 
   {
-    idx: 14,
+    idx: 7,
     title: "몽블랑 레전드 EDT (50ml)",
     explain: "#오드뜨왈렛 #시트러스계열",
     sex: "man",
@@ -93,7 +90,7 @@ export const perfume = [
     link: "http://prod.danawa.com/info/?pcode=1756498&cate=18222429",
   },
   {
-    idx: 2,
+    idx: 8,
     title: "버버리 위크앤드 포 맨 EDT (100ml)",
     explain: "#오드뜨왈렛 #시트러스계열",
     sex: "man",
@@ -103,7 +100,7 @@ export const perfume = [
     link: "http://prod.danawa.com/info/?pcode=11337999&cate=18222429",
   },
   {
-    idx: 0,
+    idx: 9,
     title: "딥티크 플레르 드 뽀 EDP (75ml)",
     explain: "#오드퍼퓸 #머스크계열",
     sex: "man",
@@ -112,11 +109,8 @@ export const perfume = [
     img_link: images.딥티크,
     link: "http://prod.danawa.com/info/?pcode=5921646&cate=18222429",
   },
-
-  /////////
-  //30대 남
   {
-    idx: 17,
+    idx: 10,
     title: "불가리 블루 뿌르 옴므 EDT (100ml)",
     explain: "#오드뜨왈렛 #우디계열",
     sex: "man",
@@ -126,7 +120,7 @@ export const perfume = [
     link: "http://prod.danawa.com/info/?pcode=485746&cate=18222429#bookmark_price_compare",
   },
   {
-    idx: 19,
+    idx: 11,
     title: "캘빈클라인 CK BE EDT (100ml)",
     explain: "#오드뜨왈렛 #머스크계열",
     sex: "man",
@@ -136,7 +130,7 @@ export const perfume = [
     link: "https://prod.danawa.com/info/?pcode=486558#",
   },
   {
-    idx: 9,
+    idx: 12,
     title: "존바바토스 아티산 EDT (125ml)",
     explain: "#오드뜨왈렛 #시트러스계열",
     sex: "man",
@@ -146,7 +140,7 @@ export const perfume = [
     link: "https://prod.danawa.com/info/?pcode=1612187&keyword=%EC%A1%B4%EB%B0%94%EB%B0%94%ED%86%A0%EC%8A%A4+%EC%95%84%ED%8B%B0%EC%82%B0&cate=18222429",
   },
   {
-    idx: 17,
+    idx: 13,
     title: "불가리 블루 뿌르 옴므 EDT (100ml)",
     explain: "#오드뜨왈렛 #우디계열",
     sex: "man",
@@ -156,7 +150,7 @@ export const perfume = [
     link: "http://prod.danawa.com/info/?pcode=485746&cate=18222429#bookmark_price_compare",
   },
   {
-    idx: 9,
+    idx: 14,
     title: "존바바토스 아티산 EDT (125ml)",
     explain: "#오드뜨왈렛 #시트러스계열",
     sex: "man",
@@ -165,11 +159,8 @@ export const perfume = [
     img_link: images.존바바토스,
     link: "https://prod.danawa.com/info/?pcode=1612187&keyword=%EC%A1%B4%EB%B0%94%EB%B0%94%ED%86%A0%EC%8A%A4+%EC%95%84%ED%8B%B0%EC%82%B0&cate=18222429",
   },
-
-  //40대
-
   {
-    idx: 19,
+    idx: 15,
     title: "딥티크 탐 다오 EDT (100ml)",
     explain: "#오드뜨왈렛 #우디계열",
     sex: "man",
@@ -180,7 +171,7 @@ export const perfume = [
   },
 
   {
-    idx: 19,
+    idx: 16,
     title: "캘빈클라인 CK BE EDT (100ml)",
     explain: "#오드뜨왈렛 #머스크계열",
     sex: "man",
@@ -190,7 +181,7 @@ export const perfume = [
     link: "https://prod.danawa.com/info/?pcode=486558#",
   },
   {
-    idx: 19,
+    idx: 17,
     title: "에스티 로더 플레져 포 맨 EDC 100ml",
     explain: "#오드뜨왈렛 #플로랄계열",
     sex: "man",
@@ -199,10 +190,8 @@ export const perfume = [
     img_link: images.에스티,
     link: "https://shopping.interpark.com/product/productInfo.do?prdNo=9060484198&dispNo=016001&bizCd=P01415&utm_medium=affiliate&utm_source=danawa&utm_campaign=shop_20211015_danawa_p01415_cps&utm_content=conversion_47",
   },
-  ////////////여자/////////////
-  //10대
   {
-    idx: 4,
+    idx: 18,
     title: "딥티크 플레르 드 뽀 EDP (75ml)",
     explain: "#오드퍼퓸 #머스크계열",
     sex: "woman",
@@ -212,7 +201,7 @@ export const perfume = [
     link: "http://prod.danawa.com/info/?pcode=5921646&cate=18222429",
   },
   {
-    idx: 5,
+    idx: 19,
     title: "딥티크 플레르 드 뽀 EDP (75ml)",
     explain: "#오드퍼퓸 #머스크계열",
     sex: "woman",
@@ -222,7 +211,7 @@ export const perfume = [
     link: "http://prod.danawa.com/info/?pcode=5921646&cate=18222429",
   },
   {
-    idx: 6,
+    idx: 20,
     title: "딥티크 플레르 드 뽀 EDP (75ml)",
     explain: "#오드퍼퓸 #머스크계열",
     sex: "woman",
@@ -233,7 +222,7 @@ export const perfume = [
   },
 
   {
-    idx: 23,
+    idx: 21,
     title: "엘리자베스아덴 그린티 센트 스프레이 (100ml)",
     explain: "#오드뜨왈렛 #플로랄계열",
     sex: "woman",
@@ -242,10 +231,8 @@ export const perfume = [
     img_link: images.엘리자베스아덴,
     link: "http://prod.danawa.com/info/?pcode=788874&keyword=%EC%97%98%EB%A6%AC%EC%9E%90%EB%B2%A0%EC%8A%A4%EC%95%84%EB%8D%B4+%EA%B7%B8%EB%A6%B0%ED%8B%B0&cate=18222429",
   },
-  ////////////
-  //20대
   {
-    idx: 41,
+    idx: 22,
     title: "입생로랑 몽 파리 플로럴 오 드 빠르펭 포우먼 EDP (50ml)",
     explain: "#오드퍼퓸 #플로랄계열",
     sex: "woman",
@@ -255,7 +242,7 @@ export const perfume = [
     link: "https://www.11st.co.kr/products/3141553630?utm_term=&utm_campaign=%B4%D9%B3%AA%BF%CDpc_%B0%A1%B0%DD%BA%F1%B1%B3%B1%E2%BA%BB&utm_source=%B4%D9%B3%AA%BF%CD_PC_PCS&utm_medium=%B0%A1%B0%DD%BA%F1%B1%B3",
   },
   {
-    idx: 37,
+    idx: 23,
     title: "샤넬 코코 마드모아젤 로 프리베 (50ml)",
     explain: "#퍼퓸 #오리엔탈계열",
     sex: "woman",
@@ -265,7 +252,7 @@ export const perfume = [
     link: "http://prod.danawa.com/info/?pcode=12199184&keyword=%EC%83%A4%EB%84%AC+%EC%BD%94%EC%BD%94+%EB%A7%88%EB%93%9C%EB%AA%A8%EC%95%84%EC%A0%A4&cate=18222429",
   },
   {
-    idx: 33,
+    idx: 24,
     title: "입생로랑 블랙 오피엄 플로랄 쇼크 EDP (50ml)",
     explain: "#오드퍼퓸 #플로랄계열",
     sex: "woman",
@@ -275,7 +262,7 @@ export const perfume = [
     link: "http://prod.danawa.com/info/?pcode=6129020&keyword=%EC%9E%85%EC%83%9D%EB%A1%9C%EB%9E%91+%EB%B8%94%EB%9E%99%EC%98%A4%ED%94%BC%EC%9B%80&cate=18222429",
   },
   {
-    idx: 29,
+    idx: 25,
     title: "딥티크 탐 다오 EDP (75ml)",
     explain: "#오드퍼퓸 #니치계열",
     sex: "woman",
@@ -286,7 +273,7 @@ export const perfume = [
   },
 
   {
-    idx: 31,
+    idx: 26,
     title: "키엘 오리지널 머스크 EDT (50ml)",
     explain: "#오드뜨왈렛 #머스크계열",
     sex: "woman",
@@ -296,7 +283,7 @@ export const perfume = [
     link: "http://prod.danawa.com/info/?pcode=3323178&keyword=%ED%82%A4%EC%97%98+%EC%98%A4%EB%A6%AC%EC%A7%80%EB%84%90+%EB%A8%B8%EC%8A%A4%ED%81%AC+%EB%B8%94%EB%A0%8C%EB%93%9C&cate=18222429",
   },
   {
-    idx: 20,
+    idx: 27,
     title: "페라가모 인칸토 참 EDT (50ml)",
     explain: "#오드뜨왈렛 #플로랄계열",
     sex: "woman",
@@ -306,7 +293,7 @@ export const perfume = [
     link: "http://prod.danawa.com/info/?pcode=789431&keyword=%ED%8E%98%EB%9D%BC%EA%B0%80%EB%AA%A8+%EC%9D%B8%EC%B9%B8%ED%86%A0&cate=18222429",
   },
   {
-    idx: 6,
+    idx: 28,
     title: "딥티크 플레르 드 뽀 EDP (75ml)",
     explain: "#오드퍼퓸 #머스크계열",
     sex: "woman",
@@ -317,7 +304,7 @@ export const perfume = [
   },
 
   {
-    idx: 23,
+    idx: 29,
     title: "엘리자베스아덴 그린티 센트 스프레이 (100ml)",
     explain: "#오드뜨왈렛 #플로랄계열",
     sex: "woman",
@@ -326,11 +313,8 @@ export const perfume = [
     img_link: images.엘리자베스아덴,
     link: "http://prod.danawa.com/info/?pcode=788874&keyword=%EC%97%98%EB%A6%AC%EC%9E%90%EB%B2%A0%EC%8A%A4%EC%95%84%EB%8D%B4+%EA%B7%B8%EB%A6%B0%ED%8B%B0&cate=18222429",
   },
-
-  /////////
-  //30대
   {
-    idx: 39,
+    idx: 30,
     title: "미우미우 로 블루 EDP (50ml)",
     explain: "#오드퍼퓸 #플로랄계열",
     sex: "woman",
@@ -340,7 +324,7 @@ export const perfume = [
     link: "http://prod.danawa.com/info/?pcode=5282045&keyword=%EB%AF%B8%EC%9A%B0%EB%AF%B8%EC%9A%B0+%EC%98%A4%EB%93%9C%ED%8D%BC%ED%93%B8&cate=18222429",
   },
   {
-    idx: 35,
+    idx: 31,
     title: "바이레도 블랑쉬 EDP (50ml)",
     explain: "#오드퍼퓸 #플로랄계열",
     sex: "woman",
@@ -350,7 +334,7 @@ export const perfume = [
     link: "http://prod.danawa.com/info/?pcode=3317149&keyword=%EB%B0%94%EC%9D%B4%EB%A0%88%EB%8F%84&cate=18222429",
   },
   {
-    idx: 29,
+    idx: 32,
     title: "딥티크 탐 다오 EDP (75ml)",
     explain: "#오드퍼퓸 #니치계열",
     sex: "woman",
@@ -361,7 +345,7 @@ export const perfume = [
   },
 
   {
-    idx: 31,
+    idx: 33,
     title: "키엘 오리지널 머스크 EDT (50ml)",
     explain: "#오드뜨왈렛 #머스크계열",
     sex: "woman",
@@ -371,7 +355,7 @@ export const perfume = [
     link: "http://prod.danawa.com/info/?pcode=3323178&keyword=%ED%82%A4%EC%97%98+%EC%98%A4%EB%A6%AC%EC%A7%80%EB%84%90+%EB%A8%B8%EC%8A%A4%ED%81%AC+%EB%B8%94%EB%A0%8C%EB%93%9C&cate=18222429",
   },
   {
-    idx: 20,
+    idx: 34,
     title: "페라가모 인칸토 참 EDT (50ml)",
     explain: "#오드뜨왈렛 #플로랄계열",
     sex: "woman",
@@ -380,11 +364,8 @@ export const perfume = [
     img_link: images.페라가모,
     link: "http://prod.danawa.com/info/?pcode=789431&keyword=%ED%8E%98%EB%9D%BC%EA%B0%80%EB%AA%A8+%EC%9D%B8%EC%B9%B8%ED%86%A0&cate=18222429",
   },
-
-  ////////////
-  ///40대
   {
-    idx: 43,
+    idx: 35,
     title: "톰포드 누와르 드 누와르 EDP (50ml)",
     explain: "#오드퍼퓸 #우디계열",
     sex: "woman",
@@ -394,7 +375,7 @@ export const perfume = [
     link: "http://prod.danawa.com/info/?pcode=6007760&keyword=%ED%86%B0%ED%8F%AC%EB%93%9C+%EB%8A%90%EC%99%80+%EB%93%9C+%EB%8A%90%EC%99%80&cate=18222429",
   },
   {
-    idx: 44,
+    idx: 36,
     title: "클로이 로즈 드 끌로에 오드뚜왈렛 (50ml)",
     explain: "#오드퍼퓸 #플로랄계열",
     sex: "woman",
@@ -404,7 +385,7 @@ export const perfume = [
     link: "https://www.g9.co.kr/Display/VIP/Index/2105238297?jaehuid=200008154",
   },
   {
-    idx: 45,
+    idx: 37,
     title: "랑방 잔느 EDP (100ml)",
     explain: "#오드퍼퓸 #플로랄계열",
     sex: "woman",
@@ -414,7 +395,7 @@ export const perfume = [
     link: "http://prod.danawa.com/info/?pcode=1594095&keyword=%EB%9E%91%EB%B0%A9+%EC%9E%94%EB%8A%90&cate=18222429",
   },
   {
-    idx: 29,
+    idx: 38,
     title: "딥티크 탐 다오 EDP (75ml)",
     explain: "#오드퍼퓸 #니치계열",
     sex: "woman",
@@ -425,7 +406,7 @@ export const perfume = [
   },
 
   {
-    idx: 31,
+    idx: 39,
     title: "키엘 오리지널 머스크 EDT (50ml)",
     explain: "#오드뜨왈렛 #머스크계열",
     sex: "woman",
@@ -435,7 +416,7 @@ export const perfume = [
     link: "http://prod.danawa.com/info/?pcode=3323178&keyword=%ED%82%A4%EC%97%98+%EC%98%A4%EB%A6%AC%EC%A7%80%EB%84%90+%EB%A8%B8%EC%8A%A4%ED%81%AC+%EB%B8%94%EB%A0%8C%EB%93%9C&cate=18222429",
   },
   {
-    idx: 20,
+    idx: 40,
     title: "페라가모 인칸토 참 EDT (50ml)",
     explain: "#오드뜨왈렛 #플로랄계열",
     sex: "woman",
