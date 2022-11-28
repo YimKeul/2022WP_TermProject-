@@ -354,7 +354,7 @@ const S = {
   FashionBox: styled.div`
     display: flex;
     flex-direction: column;
-    height: fit-content;
+    /* height: fit-content; */
 
     width: 80vw;
     margin-block: 30px;
@@ -399,7 +399,7 @@ const S = {
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    height: fit-content;
+    /* height: fit-content; */
     margin-top: 20px;
   `,
   UploadResultText: styled.p`
