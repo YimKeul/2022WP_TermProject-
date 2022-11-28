@@ -249,6 +249,7 @@ const Main = () => {
             Gender: gender,
             Fashion: fashion,
           }}
+          style={{ textDecoration: "none" }}
         >
           <S.NextpageBtn>next</S.NextpageBtn>
         </Link>

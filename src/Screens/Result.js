@@ -94,7 +94,6 @@ const Result = () => {
         <S.ResultImgbox>
           <S.ResultImg src={ShowData.img_link} alt="" />
           {/* 결과 이미지 화면*/}
-          {/* <S.ResultImg src={images.man_after} alt="" /> */}
         </S.ResultImgbox>
         <S.ResultTextBox>
           <S.ResultTitle>{ShowData.title}</S.ResultTitle>

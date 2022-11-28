@@ -14,7 +14,7 @@ const Home = () => {
             <S.SubTitle>옷에 어울리는 향수를 찾아드립니다.</S.SubTitle>
           </S.TitleBox>
           {/* Link : 페이지 이동 */}
-          <Link to="/Main">
+          <Link to="/Main" style={{ textDecoration: "none" }}>
             <S.NextpageBtn>next</S.NextpageBtn>
           </Link>
         </S.InnerContainer>
