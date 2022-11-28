@@ -374,7 +374,7 @@ const S = {
     width: 30vw;
     @media screen and (max-width: 480px) {
       width: 80vw;
-      height: 120vw;
+      min-height: 120vw;
     }
   `,
   InputArea: styled.input`
@@ -385,8 +385,8 @@ const S = {
   UploadBeforeImg: styled.img`
     width: 100%;
     height: 100%;
-    resize: contain;
-    align-self: center;
+    /* object-fit: contain; */
+    /* align-self: center; */
   `,
   UploadAfterImg: styled.img`
     width: 100%;
