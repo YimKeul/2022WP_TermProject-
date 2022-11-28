@@ -17,21 +17,21 @@ const Result = () => {
 
   // https://stackoverflow.com/questions/71190946/created-image-with-use-react-screenshot-is-incorrectly-rendered
   // 결과 화면 스크린샷 ~30라인
-  const ref = createRef(null);
-  const [image, takeScreenShot] = useScreenshot({
-    type: "image/jpeg",
-    quality: 1.0,
-  });
+  // const ref = createRef(null);
+  // const [image, takeScreenShot] = useScreenshot({
+  //   type: "image/jpeg",
+  //   quality: 1.0,
+  // });
   //image를 파일 이름과 형식을 저장
-  const download = (image, { name = "img", extension = "jpg" } = {}) => {
-    console.log("asdf");
-    const a = document.createElement("a");
-    a.href = image;
-    a.download = createFileName(extension, name);
-    // a.click();
-  };
+  // const download = (image, { name = "img", extension = "jpg" } = {}) => {
+  //   console.log("asdf");
+  //   const a = document.createElement("a");
+  //   a.href = image;
+  //   a.download = createFileName(extension, name);
+  //   a.click();
+  // };
   //최근 선택한 요소 다운
-  const downloadScreenshot = () => takeScreenShot(ref.current).then(download);
+  // const downloadScreenshot = () => takeScreenShot(ref.current).then(download);
   ///
   // const preventClose = (e) => {
   //   e.preventDefault();
@@ -50,9 +50,9 @@ const Result = () => {
   var ShowData = newDB[randomindex];
 
   //배포후
-  // const url = "https://wearscent.netlify.app/";
+  const url = "https://wearscent.netlify.app/";
   //배포전
-  const url = "http://localhost:3000";
+  // const url = "http://localhost:3000";
   const resultUrl = window.location.href;
 
   useEffect(() => {
@@ -62,11 +62,6 @@ const Result = () => {
         kakao.init("1bb3f384d3095bbb06e000935b2ca45f");
       }
     }
-    // window.addEventListener("beforeunload", preventClose);
-    // return () => {
-    //   window.removeEventListener("beforeunload", preventClose);
-    // };
-    // Kakao.init("1bb3f384d3095bbb06e000935b2ca45f");
   }, []);
   const shareKakao = () => {
     window.Kakao.Share.sendDefault({
