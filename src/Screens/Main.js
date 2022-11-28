@@ -249,7 +249,10 @@ const Main = () => {
             Gender: gender,
             Fashion: fashion,
           }}
-          style={{ textDecoration: "none" }}
+          style={{
+            textDecoration: "none",
+            WebkitTapHighlightColor: "transparent",
+          }}
         >
           <S.NextpageBtn>next</S.NextpageBtn>
         </Link>
