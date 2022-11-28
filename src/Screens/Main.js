@@ -221,13 +221,6 @@ const Main = () => {
           {selectedImage ? (
             <>
               <S.UploadAfterImg id="srcImg" src={imgBase64} alt="Thumb" />
-              {/* <S.delete onClick={removeSelectedImage}>
-                Remove This Image
-              </S.delete> 
-              삭제버튼 고민중
-              
-              */}
-
               {fashion ? (
                 // 패션 데이터 분류가 진행중일 경우에는 spinner와 함께 상황 진행중 표시 아닐경우 분석 완료 테스트 렌더링
                 <S.UploadResultBox>
