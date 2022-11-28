@@ -383,9 +383,12 @@ const S = {
     display: none;
   `,
   UploadBeforeImg: styled.img`
-    width: 100%;
-    height: 100%;
+    display: flex;
+    flex: 1;
+    /* width: 100%; */
+    /* height: 100%; */
     /* object-fit: contain; */
+    /* resize: cover; */
     /* align-self: center; */
   `,
   UploadAfterImg: styled.img`
