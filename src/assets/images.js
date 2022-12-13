@@ -1,8 +1,8 @@
 const images = {
-  man_before: require("./img/man_before.png"),
-  man_after: require("./img/man_after.png"),
-  woman_before: require("./img/woman_before.png"),
-  woman_after: require("./img/woman_after.png"),
+  man_before: require("./img2/man_before.png"),
+  man_after: require("./img2/man_after.png"),
+  woman_before: require("./img2/woman_before.png"),
+  woman_after: require("./img2/woman_after.png"),
   mg_10_before: require("./img2/10_before.png"),
   mg_10_after: require("./img2/10_after.png"),
   mg_20_before: require("./img2/20_before.png"),
