@@ -92,7 +92,8 @@ const Result = () => {
 
   return (
     <S.Container>
-      <S.ResultBox ref={ref}>
+      {/* <S.ResultBox ref={ref}> */}
+      <S.ResultBox>
         {/* 스크린샷 범위 지정 ref */}
         <S.InTitle>당신에게 어울리는 향수는...</S.InTitle>
         <S.ResultImgbox>
