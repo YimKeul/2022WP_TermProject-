@@ -37,7 +37,7 @@ const S = {
     background-color: #f5f5f5;
   `,
   BackgroundImg: styled.div`
-    background-image: url(${images.intro1});
+    background-image: url(${images.intro});
     width: 100vw;
     height: 100vh;
     background-size: contain;

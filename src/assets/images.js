@@ -1,4 +1,5 @@
 const images = {
+  intro: require("./img2/intro1.png"),
   man_before: require("./img2/man_before.png"),
   man_after: require("./img2/man_after.png"),
   woman_before: require("./img2/woman_before.png"),
